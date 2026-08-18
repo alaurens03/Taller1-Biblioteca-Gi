@@ -28,6 +28,19 @@ public class Main {
         clientes.add(cliente);
         System.out.println("Cliente creado correctamente.");
     }
+    
+        // READ - listar
+    static void listarClientes() {
+        System.out.println("\n-- Listado de clientes --");
+        if (clientes.isEmpty()) {
+            System.out.println("No hay clientes registrados.");
+            return;
+        }
+        for (Cliente c : clientes) {
+            System.out.println(c);
+        }
+    }
+    
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
