@@ -245,6 +245,30 @@ static void crearPrestamo() {
     System.out.println("Prestamo registrado correctamente.");
 }
 
+static void devolucionPrestamo() {
+    System.out.println("\n-- Registrar Devolucion --");
+    System.out.print("Id del prestamo a devolver: ");
+    String idPrestamo = sc.nextLine();
+
+    Prestamo p = null;
+    for (Prestamo pr : prestamos) {
+        if (pr.getIdPrestamo().equals(idPrestamo)) {
+            p = pr;
+            break;
+        }
+    }
+
+    if (p == null) {
+        System.out.println("Prestamo no encontrado.");
+    } else if (p.getEstado().equals("DEVUELTO")) {
+        System.out.println("Este prestamo ya fue devuelto anteriormente.");
+    } else {
+        p.setEstado("DEVUELTO");
+        p.getLibro().setDisponible(true);
+        System.out.println("Devolucion registrada correctamente.");
+    }
+}
+
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
