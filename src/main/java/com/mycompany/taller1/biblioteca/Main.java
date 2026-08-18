@@ -161,6 +161,38 @@ static void buscarLibro() {
     }
 }
     
+static void actualizarLibro() {
+    System.out.println("\n-- Actualizar Libro --");
+    System.out.print("Codigo del libro a actualizar: ");
+    String codigo = sc.nextLine();
+
+    Libro l = buscarLibroPorCodigo(codigo);
+
+    if (l == null) {
+        System.out.println("Libro no encontrado.");
+    } else {
+        System.out.print("Nuevo titulo (" + l.getTitulo() + "): ");
+        String titulo = sc.nextLine();
+        if (!titulo.isBlank()) {
+            l.setTitulo(titulo);
+        }
+
+        System.out.print("Nuevo autor (" + l.getAutor() + "): ");
+        String autor = sc.nextLine();
+        if (!autor.isBlank()) {
+            l.setAutor(autor);
+        }
+
+        System.out.print("Nuevo anio de publicacion (" + l.getAnioPublic() + "): ");
+        String anioPublic = sc.nextLine();
+        if (!anioPublic.isBlank()) {
+            l.setAnioPublic(anioPublic);
+        }
+
+        System.out.println("Libro actualizado correctamente.");
+    }
+}
+
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
