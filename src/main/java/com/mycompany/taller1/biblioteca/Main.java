@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     static ArrayList<Cliente> clientes = new ArrayList<>();
+    static ArrayList<Libro> libros = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     
     // CREATE
@@ -108,6 +109,23 @@ public class Main {
         clientes.remove(c);
         System.out.println("Cliente eliminado correctamente.");
     }
+}
+    
+    static void crearLibro() {
+    System.out.println("\n-- Crear Libro --");
+    System.out.print("Codigo: ");
+    String codigo = sc.nextLine();
+    System.out.print("Titulo: ");
+    String titulo = sc.nextLine();
+    System.out.print("Anio de publicacion: ");
+    String anioPublic = sc.nextLine();
+    System.out.print("Autor: ");
+    String autor = sc.nextLine();
+
+    Libro l = new Libro(codigo, titulo, anioPublic, autor);
+    libros.add(l);
+
+    System.out.println("Libro creado correctamente.");
 }
     
     public static void main(String[] args) {
