@@ -127,6 +127,16 @@ public class Main {
 
     System.out.println("Libro creado correctamente.");
 }
+    static void listarLibros() {
+    System.out.println("\n-- Listado de Libros --");
+    if (libros.isEmpty()) {
+        System.out.println("No hay libros registrados.");
+    } else {
+        for (Libro l : libros) {
+            System.out.println(l);
+        }
+    }
+}
     
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
