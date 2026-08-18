@@ -4,13 +4,31 @@
 
 package com.mycompany.taller1.biblioteca;
 
-/**
- *
- * @author PC USER
- */
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
 
+    static ArrayList<Cliente> clientes = new ArrayList<>();
+    static Scanner sc = new Scanner(System.in);
+    
+    // CREATE
+    static void crearCliente() {
+        System.out.println("\n-- Crear cliente --");
+        System.out.print("Id: ");
+        String id = sc.nextLine();
+        System.out.print("Nombre: ");
+        String nombre = sc.nextLine();
+        System.out.print("Telefono: ");
+        String telefono = sc.nextLine();
+        System.out.print("Email: ");
+        String email = sc.nextLine();
+
+        Cliente cliente = new Cliente(id, nombre, telefono, email);
+        clientes.add(cliente);
+        System.out.println("Cliente creado correctamente.");
+    }
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // Aquí irá el menú (Fase 8)
     }
 }
