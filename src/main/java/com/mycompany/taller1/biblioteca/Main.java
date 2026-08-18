@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     static ArrayList<Cliente> clientes = new ArrayList<>();
+    static ArrayList<Libro> libros = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     
     // CREATE
@@ -110,6 +111,103 @@ public class Main {
     }
 }
     
+    static void crearLibro() {
+    System.out.println("\n-- Crear Libro --");
+    System.out.print("Codigo: ");
+    String codigo = sc.nextLine();
+    System.out.print("Titulo: ");
+    String titulo = sc.nextLine();
+    System.out.print("Anio de publicacion: ");
+    String anioPublic = sc.nextLine();
+    System.out.print("Autor: ");
+    String autor = sc.nextLine();
+
+    Libro l = new Libro(codigo, titulo, anioPublic, autor);
+    libros.add(l);
+
+    System.out.println("Libro creado correctamente.");
+}
+    static void listarLibros() {
+    System.out.println("\n-- Listado de Libros --");
+    if (libros.isEmpty()) {
+        System.out.println("No hay libros registrados.");
+    } else {
+        for (Libro l : libros) {
+            System.out.println(l);
+        }
+    }
+}
+    
+    static Libro buscarLibroPorCodigo(String codigo) {
+    for (Libro l : libros) {
+        if (l.getCodigo().equals(codigo)) {
+            return l;
+        }
+    }
+    return null;
+}
+
+static void buscarLibro() {
+    System.out.println("\n-- Buscar Libro --");
+    System.out.print("Codigo del libro: ");
+    String codigo = sc.nextLine();
+
+    Libro l = buscarLibroPorCodigo(codigo);
+
+    if (l == null) {
+        System.out.println("Libro no encontrado.");
+    } else {
+        System.out.println(l);
+    }
+}
+    
+static void actualizarLibro() {
+    System.out.println("\n-- Actualizar Libro --");
+    System.out.print("Codigo del libro a actualizar: ");
+    String codigo = sc.nextLine();
+
+    Libro l = buscarLibroPorCodigo(codigo);
+
+    if (l == null) {
+        System.out.println("Libro no encontrado.");
+    } else {
+        System.out.print("Nuevo titulo (" + l.getTitulo() + "): ");
+        String titulo = sc.nextLine();
+        if (!titulo.isBlank()) {
+            l.setTitulo(titulo);
+        }
+
+        System.out.print("Nuevo autor (" + l.getAutor() + "): ");
+        String autor = sc.nextLine();
+        if (!autor.isBlank()) {
+            l.setAutor(autor);
+        }
+
+        System.out.print("Nuevo anio de publicacion (" + l.getAnioPublic() + "): ");
+        String anioPublic = sc.nextLine();
+        if (!anioPublic.isBlank()) {
+            l.setAnioPublic(anioPublic);
+        }
+
+        System.out.println("Libro actualizado correctamente.");
+    }
+}
+
+static void eliminarLibro() {
+    System.out.println("\n-- Eliminar Libro --");
+    System.out.print("Codigo del libro a eliminar: ");
+    String codigo = sc.nextLine();
+
+    Libro l = buscarLibroPorCodigo(codigo);
+
+    if (l == null) {
+        System.out.println("Libro no encontrado.");
+    } else {
+        libros.remove(l);
+        System.out.println("Libro eliminado correctamente.");
+    }
+}
+
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
