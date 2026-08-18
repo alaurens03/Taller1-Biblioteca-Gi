@@ -63,6 +63,38 @@ public class Main {
         }
     }
     
+    static void actualizarCliente() {
+    System.out.println("\n-- Actualizar Cliente --");
+    System.out.print("Id del cliente a actualizar: ");
+    String id = sc.nextLine();
+
+    Cliente c = buscarClientePorId(id);
+
+    if (c == null) {
+        System.out.println("Cliente no encontrado.");
+    } else {
+        System.out.print("Nuevo nombre (" + c.getNombre() + "): ");
+        String nombre = sc.nextLine();
+        if (!nombre.isBlank()) {
+            c.setNombre(nombre);
+        }
+
+        System.out.print("Nuevo telefono (" + c.getTelefono() + "): ");
+        String telefono = sc.nextLine();
+        if (!telefono.isBlank()) {
+            c.setTelefono(telefono);
+        }
+
+        System.out.print("Nuevo email (" + c.getEmail() + "): ");
+        String email = sc.nextLine();
+        if (!email.isBlank()) {
+            c.setEmail(email);
+        }
+
+        System.out.println("Cliente actualizado correctamente.");
+    }
+}
+    
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
