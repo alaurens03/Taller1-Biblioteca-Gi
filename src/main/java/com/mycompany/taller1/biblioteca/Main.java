@@ -95,6 +95,21 @@ public class Main {
     }
 }
     
+    static void eliminarCliente() {
+    System.out.println("\n-- Eliminar Cliente --");
+    System.out.print("Id del cliente a eliminar: ");
+    String id = sc.nextLine();
+
+    Cliente c = buscarClientePorId(id);
+
+    if (c == null) {
+        System.out.println("Cliente no encontrado.");
+    } else {
+        clientes.remove(c);
+        System.out.println("Cliente eliminado correctamente.");
+    }
+}
+    
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
