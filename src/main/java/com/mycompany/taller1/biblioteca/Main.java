@@ -193,6 +193,21 @@ static void actualizarLibro() {
     }
 }
 
+static void eliminarLibro() {
+    System.out.println("\n-- Eliminar Libro --");
+    System.out.print("Codigo del libro a eliminar: ");
+    String codigo = sc.nextLine();
+
+    Libro l = buscarLibroPorCodigo(codigo);
+
+    if (l == null) {
+        System.out.println("Libro no encontrado.");
+    } else {
+        libros.remove(l);
+        System.out.println("Libro eliminado correctamente.");
+    }
+}
+
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
