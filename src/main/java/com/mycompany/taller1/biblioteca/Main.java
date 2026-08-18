@@ -41,6 +41,28 @@ public class Main {
         }
     }
     
+        // READ - buscar
+    static Cliente buscarClientePorId(String id) {
+        for (Cliente c : clientes) {
+            if (c.getId().equalsIgnoreCase(id)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    static void buscarCliente() {
+        System.out.println("\n-- Buscar cliente por id --");
+        System.out.print("Id del cliente: ");
+        String id = sc.nextLine();
+        Cliente c = buscarClientePorId(id);
+        if (c == null) {
+            System.out.println("Cliente no encontrado.");
+        } else {
+            System.out.println(c);
+        }
+    }
+    
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
