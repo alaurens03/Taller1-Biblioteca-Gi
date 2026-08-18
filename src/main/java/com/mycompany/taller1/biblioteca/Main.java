@@ -138,6 +138,29 @@ public class Main {
     }
 }
     
+    static Libro buscarLibroPorCodigo(String codigo) {
+    for (Libro l : libros) {
+        if (l.getCodigo().equals(codigo)) {
+            return l;
+        }
+    }
+    return null;
+}
+
+static void buscarLibro() {
+    System.out.println("\n-- Buscar Libro --");
+    System.out.print("Codigo del libro: ");
+    String codigo = sc.nextLine();
+
+    Libro l = buscarLibroPorCodigo(codigo);
+
+    if (l == null) {
+        System.out.println("Libro no encontrado.");
+    } else {
+        System.out.println(l);
+    }
+}
+    
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
     }
